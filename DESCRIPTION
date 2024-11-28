@@ -6,8 +6,7 @@ Author: person("Erneszt", "Kazmin", email = "erneszt.kazmin@stud.uni-corvinus.hu
 Maintainer: Erneszt Kazmin <erneszt.kazmin@stud.uni-corvinus.hu>
 Description: This package provides functions for two-stage least squares VAR estimation.
 Imports:
-    stats,
-    vars
+    stats
 Depends:
     R (>= 3.5.0)
 License: GPL-3
