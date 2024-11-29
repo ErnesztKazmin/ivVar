@@ -43,4 +43,4 @@ plot(irf(var, impulse = "gs1", response = "gs1",  n.ahead = 45, ortho = T, seed 
 plot(irf(var, impulse = "gs1", response = "ebp",  n.ahead = 45, ortho = T, seed = 30))
 
 #Do not forget to reinstall "vars" package after using this package!
-install.packages("vars")
+#install.packages("vars")
