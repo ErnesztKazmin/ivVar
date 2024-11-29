@@ -9,7 +9,7 @@ first_stage(x, instrument, instrumented)
 \arguments{
 \item{x}{A VAR model object (class "varest").}
 
-\item{instrument}{A character string for the instrument variable.}
+\item{instrument}{A vector representing the instrument variable values.}
 
 \item{instrumented}{A character string for the instrumented variable.}
 }

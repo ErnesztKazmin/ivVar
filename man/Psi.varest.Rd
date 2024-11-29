@@ -14,7 +14,7 @@ Psi.varest(x, nstep = 10, instrumented)
 \item{instrumented}{A character string for the instrumented variable.}
 }
 \value{
-A 3D array representing the Psi matrix.
+An array with dimension (K×K×nstep+1) holding the estimated orthogonalised coefficients of the moving average representation.
 }
 \description{
 Calculates the Psi matrix for proxy VAR analysis.
