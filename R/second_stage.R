@@ -10,7 +10,7 @@
 second_stage <- function(x, res_model_hat, instrumented){
   p <- x$p
   residuals <- as.data.frame(residuals(x))
-  models <- lapply(residuals, function(i) lm(i ~ res_model_hat[-(p+1):-1]))
+  models <- lapply(residuals, function(i) lm(i ~ res_model_hat[-p:-1]))
   coefs <- as.data.frame(lapply(models, function(i) coef(i)[2]))
   return(`row.names<-`(coefs, "Coefficients"))
 }
