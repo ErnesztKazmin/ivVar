@@ -31,10 +31,15 @@ plot(irf(var, impulse = "gs1", response = "gs1",  n.ahead = 45, ortho = T, seed 
 devtools::install_github("ErnesztKazmin/ivVar")
 library(ivVar)
 assignInNamespace("Psi.varest", Psi.varest, ns = "vars")
+
+first_stage(var,
+            instrument = (data[1:nrow(data), "ff4_tc"]),
+            instrumented = "gs1")[[2]]
+
 coefs <- second_stage(var, instrumented = "gs1",
                       res_model_hat = first_stage(var,
                                                   instrument = (data[1:nrow(data), "ff4_tc"]),
-                                                  instrumented = "gs1"))
+                                                  instrumented = "gs1")[[1]])
 
 
 plot(irf(var, impulse = "gs1", response = "logip",  n.ahead = 45, ortho = T, seed = 30))
