@@ -11,10 +11,10 @@ first_stage <- function (x, instrument, instrumented){
   variables <- colnames(x$datamat)[1:x$K]
   p <- x$p
   res <- c(rep(NA, times = p), residuals(x)[,instrumented])
-  res_model <- fixest::feols(res ~ instrument, vcov = "HC1")
+  res_model <- lm(res ~ instrument)
   res_model_hat <- c(rep(NA, times = p ), res_model$fitted.values)
-  summary_model <- summary(res_model)
-  final <- list(res_model_hat, summary_model)
+  white <- lmtest::coeftest(res_model, vcov = vcovHC(res_model, type = "HC0"))
+  final <- list(res_model_hat, white)
   return(final)
 }
 
