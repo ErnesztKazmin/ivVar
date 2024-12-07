@@ -32,9 +32,15 @@ devtools::install_github("ErnesztKazmin/ivVar")
 library(ivVar)
 assignInNamespace("Psi.varest", Psi.varest, ns = "vars")
 
+# Output of the first stage
 first_stage(var,
             instrument = (data[1:nrow(data), "ff4_tc"]),
             instrumented = "gs1")[[2]]
+
+# Wald-F test
+first_stage(var,
+            instrument = (data[1:nrow(data), "ff4_tc"]),
+            instrumented = "gs1")[[3]]
 
 coefs <- second_stage(var, instrumented = "gs1",
                       res_model_hat = first_stage(var,
