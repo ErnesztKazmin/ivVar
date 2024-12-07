@@ -14,7 +14,7 @@ first_stage <- function (x, instrument, instrumented){
   res_model <- lm(res ~ instrument)
   res_model_hat <- c(rep(NA, times = p ), res_model$fitted.values)
   white <- lmtest::coeftest(res_model, vcov = vcovHC(res_model, type = "HC0"))
-  fs <- list(res_model_hat, white)
-  return(fs)
+  results <- list(res_model_hat, white)
+  return(results)
 }
 
